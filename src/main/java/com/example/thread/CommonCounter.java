@@ -8,18 +8,21 @@ public class CommonCounter implements Runnable{
     static ReentrantLock lock = new ReentrantLock();
     @Override
     public void run() {
+
         lock.lock();
 
         printThreadInfo(Thread.currentThread());
 
         try {
-            counter++;
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+
+            for (int i = 0; i < 5000; i++) {
+                counter++;
+            }
+
         } finally {
             lock.unlock();
         }
+
     }
 
     public static void printThreadInfo(Thread thread) {

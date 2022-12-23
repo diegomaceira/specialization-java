@@ -19,6 +19,8 @@ public class MonitorController {
         Thread thread1 = new Thread(commonCounter,"HILO1");
         Thread thread2 = new Thread(commonCounter,"HILO2");
 
+        System.out.println("initial value counter : " + CommonCounter.counter);
+
         CommonCounter.printThreadInfo(thread1);
         CommonCounter.printThreadInfo(thread2);
 
@@ -31,7 +33,7 @@ public class MonitorController {
         CommonCounter.printThreadInfo(thread1);
         CommonCounter.printThreadInfo(thread2);
 
-        System.out.println("counter : " + CommonCounter.counter);
+        System.out.println("final value counter : " + CommonCounter.counter);
 
         return ResponseEntity.ok("OK");
     }
